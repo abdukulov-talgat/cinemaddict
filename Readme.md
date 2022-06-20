@@ -1,7 +1,7 @@
 # Проект «Киноман»
 
-* Студент: [Неизвестно](https://up.htmlacademy.ru/).
-* Наставник: `Неизвестно`.
+* Студент: `self`.
+* Наставник: `self`.
 
 ---
 
@@ -48,5 +48,5 @@ git clone SSH-адрес_вашего_форка
 
 Репозиторий создан для обучения на профессиональном курсе «[JavaScript. Архитектура клиентских приложений](https://htmlacademy.ru/intensive/ecmascript)» от [HTML Academy](https://htmlacademy.ru).
 
-[check-image]: https://github.com/htmlacademy-ecmascript/346745-cinemaddict-14/workflows/Project%20check/badge.svg?branch=master
-[check-url]: https://github.com/htmlacademy-ecmascript/346745-cinemaddict-14/actions
+[check-image]: https://github.com/abdukulov-talgat/cinemaddict/workflows/Project%20check/badge.svg?branch=master
+[check-url]: https://github.com/abdukulov-talgat/cinemaddict/actions
