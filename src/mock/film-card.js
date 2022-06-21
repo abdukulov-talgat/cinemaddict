@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { getRandomFloat, getRandomInteger, getRandomItem, shuffle } from '../utils/mock-utils.js';
+import { getRandomFloat, getRandomInteger, getRandomItem, getRandomItems } from '../utils/mock-utils.js';
 
 const MIN_COMMENTS = 0;
 const MAX_COMMENTS = 5;
@@ -37,6 +37,26 @@ const GENRES = [
   'Thriller',
 ];
 
+const NAMES = [
+  'Gus Van Sant',
+  'David Fincher',
+  'Takashi Miike',
+  'Lars von Trier',
+  'Samira Makhmalbaf',
+  'David O Russell',
+  'Pawel Pawlikowski',
+  'Gaspar Noé',
+];
+
+const COUNTRIES = [
+  'Finland',
+  'England',
+  'USA',
+  'Turkey',
+  'Germany',
+  'India',
+];
+
 const DESCRIPTION = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
 aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Aliquam id orci
 ut lectus varius viverra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante. Phasellus eros
@@ -64,25 +84,34 @@ function getRandomComments() {
     arr[i] = i;
   }
 
-  return shuffle(arr).slice(MIN_COMMENTS, getRandomInteger(0, MAX_COMMENTS));
+  return getRandomItems(arr, MIN_COMMENTS, MAX_COMMENTS);
 }
 
-function getRandomGenres() {
-  return shuffle(GENRES.slice()).slice(1, getRandomInteger(1, 4));
-}
 
 let nextId = 0;
 function generateFilmCard() {
   const card = {
     id: nextId++,
-    title: getRandomItem(TITLES),
     poster: getRandomItem(POSTERS),
+    title: getRandomItem(TITLES),
+    altTitle: getRandomItem(TITLES),
     rating: getRandomFloat(0, 10),
-    debutYear: generateRandomDate(),
+    director: getRandomItem(NAMES),
+    writers: getRandomItems(NAMES, 1, 3),
+    actors: getRandomItems(NAMES),
+    releaseDate: generateRandomDate(),
     duration: getRandomInteger(60, 120),
-    genres: getRandomGenres(),
+    country: getRandomItem(COUNTRIES),
+    genres: getRandomItems(GENRES, 1, 4),
     description: getRandomDescription(),
+    ageRating: getRandomInteger(0, 18),
     comments: getRandomComments(),
+    userDetails: {
+      watchlist: Boolean(getRandomInteger(0, 1)),
+      favorite: Boolean(getRandomInteger(0, 1)),
+      watched: Boolean(getRandomInteger(0, 1)),
+    },
+
   };
 
   return card;

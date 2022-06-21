@@ -12,6 +12,10 @@ function getRandomItem(array) {
   return array[getRandomInteger(0, array.length - 1)];
 }
 
+function getRandomItems(array, min = 1, max = 3) {
+  return shuffle(array.slice()).slice(0, getRandomInteger(min, max));
+}
+
 // source: https://javascript.info/task/shuffle
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -27,4 +31,4 @@ function shuffle(array) {
   return array;
 }
 
-export { getRandomInteger, getRandomItem, getRandomFloat, shuffle };
+export { getRandomInteger, getRandomItem, getRandomFloat, shuffle, getRandomItems };

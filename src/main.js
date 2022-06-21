@@ -25,20 +25,22 @@ render(mainElement, createFilmsTemplate());
 const allFilmsElement = mainElement.querySelector('#all-films');
 render(allFilmsElement, createMoreButtonTemplate(), 'afterend');
 
-for(const card of cards){
+for (const card of cards) {
   render(allFilmsElement, createFilmCardTemplate(card));
 }
 
 const topRatedElement = document.querySelector('#top-rated');
-for (let i = 0; i < TOP_RATED_COUNT; i++) {
-  render(topRatedElement, createFilmCardTemplate(cards[i])); //WIP
+const topRatedCards = cards.slice().sort((a, b) => b.rating - a.rating).slice(0, TOP_RATED_COUNT);
+for (const card of topRatedCards) {
+  render(topRatedElement, createFilmCardTemplate(card));
 }
 const mostCommentElement = document.querySelector('#most-comment');
-for (let i = 0; i < MOST_COMMENT_COUNT; i++) {
-  render(mostCommentElement, createFilmCardTemplate(cards[i]));
+const mostCommentCards = cards.slice().sort((a, b) => b.comments.length - a.comments.length).slice(0, MOST_COMMENT_COUNT);
+for (const card of mostCommentCards) {
+  render(mostCommentElement, createFilmCardTemplate(card));
 }
 
-// render(document.body, createFilmDetailsTemplate());
+// render(document.body, createFilmDetailsTemplate(cards[0]));
 // document.body.classList.add('hide-overflow');
 
 

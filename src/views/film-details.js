@@ -1,4 +1,25 @@
-function createFilmDetailsTemplate() {
+function createFilmDetailsTemplate(card) {
+  const {
+    id,
+    poster,
+    title,
+    altTitle,
+    rating,
+    director,
+    writers,
+    actors,
+    releaseDate,
+    duration,
+    country,
+    genres,
+    description,
+    ageRating,
+    comments,
+    userDetails,
+  } = card;
+  const { watchlist, favorite, watched } = userDetails;
+
+  /* html */
   return `
     <section class="film-details">
       <form class="film-details__inner" action="" method="get">
