@@ -1,3 +1,6 @@
+import dayjs from 'dayjs';
+
+
 function humanizeDuration(duration) {
   let hours = Math.floor(duration / 60);
   let minutes = duration % 60;
@@ -7,5 +10,9 @@ function humanizeDuration(duration) {
   return `${hours} ${minutes}`;
 }
 
+function stringifyDate (date, format = 'DD MMMM YYYY') {
+  return dayjs(date).format(format);
+}
 
-export { humanizeDuration };
+
+export { humanizeDuration, stringifyDate };

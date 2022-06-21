@@ -7,7 +7,7 @@ function createFilmCardTemplate(card) {
     id,
     poster,
     title,
-    // altTitle,
+    // originTitle,
     rating,
     // director,
     // writers,

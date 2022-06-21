@@ -1,12 +1,18 @@
-function createMainNavigationTemplate() {
+function createFilterItemTemplate(filter) {
+  const { id, text, count } = filter;
+  /* html */
+  return `
+  <a href="#${id}" class="main-navigation__item main-navigation__item--active">${text} <span class="main-navigation__item-count">${count}</span></a>
+  `;
+}
+
+function createMainNavigationTemplate(filters) {
   /* html */
   return `
     <nav class="main-navigation">
       <div class="main-navigation__items">
-        <a href="#all" class="main-navigation__item main-navigation__item--active">All movies</a>
-        <a href="#watchlist" class="main-navigation__item">Watchlist <span class="main-navigation__item-count">13</span></a>
-        <a href="#history" class="main-navigation__item">History <span class="main-navigation__item-count">4</span></a>
-        <a href="#favorites" class="main-navigation__item">Favorites <span class="main-navigation__item-count">8</span></a>
+        <a href="#${filters[0].id}" class="main-navigation__item main-navigation__item--active">${filters[0].text}</a>
+        ${filters.slice(1).map((it) => createFilterItemTemplate(it)).join('')}
       </div>
       <a href="#stats" class="main-navigation__additional">Stats</a>
     </nav>`;
